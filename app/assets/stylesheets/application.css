@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ /* 要素にbox-sizing: border-box;指定すると、paddingやborderを指定してもボックスサイズに含まれるようにして、横幅を300pxに維持させる。
+ 要素のボックスサイズにpaddingとborderを含めるようになります。* セレクターは、すべての要素に適用させるという意味。 */
+ * {
+   box-sizing: border-box;
+ }
