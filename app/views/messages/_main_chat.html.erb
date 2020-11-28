@@ -47,17 +47,18 @@
   </div>
 
 </div>
-
-<div class="form">
+<%# @room,@messageを２つ渡しているのは、messagesのルーティングがroomsにネストされているため。
+あるチャットルームに属しているメッセージ、という親子関係がある。 %>
+<%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
   <div class="form-input">
-    <input class="form-message" placeholder = "type a message">
+    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
     <label class="form-image">
       <span class="image-file">画像</span>
-      <input type="file" class="hidden"> <%# image画像を選択できるように %>
+      <%= f.file_field :image, class: 'hidden' %> <%# image画像を選択できるように %>
     </label>
   </div>
-    <input class="form-submit" type="submit" value="送信">
-</div>
+  <input class="form-submit" type="submit" value="送信">
+<% end %>
 
 <%# label要素
 label要素とは、フォームの中でフォームの項目名とフォームの
