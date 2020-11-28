@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # バリデーション。名前が空だったらデータベースに保存しない。
   validates :name, presence: true   
+
+  has_many :room_users
+  # 中間テーブルを通して繋がっているものにはthrough:というkeyをつける。
+  has_many :rooms, through: room_users
 end
