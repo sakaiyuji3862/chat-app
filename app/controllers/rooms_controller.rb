@@ -3,11 +3,12 @@ class RoomsController < ApplicationController
   end
 
   def new
+    # 空のインスタンスを生成、保存用
     @room = Room.new
   end
 
   def create
-    @room = Room.new(room_params)
+    @room = Room.new(room_params) # newをcreateにしても同じ意味。ifで式展開したいからnew。
     if @room.save
       redirect_to root_path
     else
