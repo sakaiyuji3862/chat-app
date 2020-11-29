@@ -18,7 +18,7 @@
       <div class='chat-room-form__field--right'>
         <%# select要素は、プルダウンのようなセレクトボックスを作成するための要素。 %>
         <%# select要素のname属性に任意の値を指定することでparamsを通じて、その値をコントローラーへ渡すことができる。 %>
-        <select name="room[user_ids][]">
+        <select name="room[user_ids][]"> <%# {"room" => {"user_ids => ["選択したユーザーのid", "現在ログインしているユーザーのid"]}} %>
           <%# option。select要素の中に記述することで、プルダウンの選択肢になる要素 %>
           <option value="">チャットするユーザーを選択してください</option>
           <%# モデル名.where("条件")と記述すると、条件に一致したレコードを配列として取得できます。
@@ -28,7 +28,8 @@
             <option value=<%= user.id %>><%= user.name %></option>
           <% end %>
         </select>
-        <%# この記述で、現在ログイン中のユーザーが持つidをparamsに含めることができる %>
+        <%# この記述で、現在ログイン中のユーザーが持つidをparamsに含めることができる。
+             このフォームは type="hidden" で見えないようにしている %>
         <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
       </div>          <%# ↑ で送られるparamsの中身 {"room" => {"user_ids" => ["選択したユーザーのid", "現在ログインしているユーザーのid"]}} %>
     </div>

@@ -124,7 +124,7 @@
 }
 
 .form-input {
-  color: white;
+  background-color: white;
   width: 100%;
   display: flex;
 }
@@ -159,4 +159,8 @@
 /* 画像を選択を消す */
 .hidden {
   display: none;
+}
+
+.field_with_errors {
+  display: contents;
 }
