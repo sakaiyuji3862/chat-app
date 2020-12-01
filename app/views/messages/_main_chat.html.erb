@@ -8,7 +8,7 @@
   <div class="right-header">
     <div class="header-button">
       <%# 削除するチャットルームを区別するために、定義している@roomを引数にして記述 %>
-      <%= link_to "チャット終了する", room_path(@room), method: :delete %>
+      <%= link_to "チャットを終了する", room_path(@room), method: :delete %>
     </div>
   </div>
 </div>
@@ -29,7 +29,7 @@
       <%= f.file_field :image, class: 'hidden' %> <%# image画像を選択できるように %>
     </label>
   </div>
-  <input class="form-submit" type="submit" value="送信">
+  <input class="form-submit" name="commit" type="submit" value="送信">
 <% end %>
 
 <%# label要素
