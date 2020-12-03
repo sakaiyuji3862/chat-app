@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
 
   def create
     @room = Room.find(params[:room_id]) # どこのルームに保存するか 
+    # 空のインスタンスを生成。保存用。
     # @room.messages.newでチャットルームに紐づいたメッセージのインスタンスを生成し、message_paramsを引数にして、privateメソッドを呼び出す。
     @message = @room.messages.new(message_params)
     # saveメソッドでメッセージの内容をmessagesテーブルに保存。
